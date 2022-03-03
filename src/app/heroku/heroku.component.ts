@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ApiService } from '../api.service';
 
 
 
 @Component({
-  selector: 'app-heroku',
+  selector: 'app-search-list',
   templateUrl: './heroku.component.html',
   styleUrls: ['./heroku.component.css']
 })
 export class HerokuComponent implements OnInit {
+  @Input() data:any = [];
+  
   
  headingComponent = "Audit logs";
  email="email";
@@ -20,22 +22,20 @@ export class HerokuComponent implements OnInit {
  apiDataName:any =[];
  roomsFilter:any;
   searchText: any;
- 
   
   
+  
  
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService) {
+    
+    console.log(this.data)
+    //console.log(this.columns)
+   }
   
   
 
   ngOnInit(): void {
-    this.api.getApiData().subscribe((data=>{
-      this.apiData=data;
-      this.apiData.forEach((element: {email: any; name:any ;phone:any;},index:any) => {
-        this.apiDataName[index]=element;
-
-      });
-    }))
+    
   }
 
   

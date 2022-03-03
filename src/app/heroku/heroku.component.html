@@ -3,20 +3,8 @@
     <div class="col-4">
       <h1>{{ headingComponent }}</h1>
     </div>
-    <div class="col-4">
-      <!-- <mat-form-field appearance="fill" class="background-color">
-        <mat-label>Enter a date range</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-          <input matStartDate placeholder="Start date" [(ngModel)]="fromDate" />
-          <input matEndDate placeholder="End date" [(ngModel)]="toDate" />
-        </mat-date-range-input>
-        <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-      </mat-form-field> -->
-    </div>
-    <div class="col-3">
-      <!-- <button class="background-color" (click)="datePrint()">Submit</button> -->
-    </div>
+    <div class="col-4"></div>
+    <div class="col-3"></div>
   </div>
   <div class="row">
     <div class="search-hero">
@@ -26,7 +14,7 @@
         name="search"
         [(ngModel)]="searchText"
         autocomplete="off"
-        placeholder="&#61442;  Start searching for a action description by id or description or date"
+        placeholder="&#61442;  Start searching by name or phone or email"
       />
     </div>
     <table class="table table-striped">
@@ -38,10 +26,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of apiDataName | filter: searchText">
-          <td>{{ data.name }}</td>
-          <td>{{ data.phone }}</td>
-          <td>{{ data.email }}</td>
+        <tr *ngFor="let d of data | filter: searchText">
+          <td>{{ d.name }}</td>
+          <td>{{ d.phone }}</td>
+          <td>{{ d.email }}</td>
         </tr>
       </tbody>
     </table>
